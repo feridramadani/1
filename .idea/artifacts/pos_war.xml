@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" external-system-id="Maven" name="pos:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>pos</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="pos.war">
+      <element id="artifact" artifact-name="pos:war exploded" />
+    </root>
+  </artifact>
+</component>
