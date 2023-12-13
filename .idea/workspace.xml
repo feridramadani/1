@@ -10,21 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e04368b-3be2-4d14-8b57-1dac5edd818b" name="Changes" comment="initial">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MyApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ProductResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/UserResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/database/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Delete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Insert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/database/ProductSQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Select.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/OrderItemResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/OrderResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/PaymentResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/ProductResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/OrderItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/PaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/pos_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/pos_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +51,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;feridramadani&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="32fc099d-45d6-467a-b90e-ce44156876ca" />
+        <option name="url" value="https://github.com/feridramadani/1.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -52,7 +76,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2Y8XISKeHGYeLj0Fju44OwTBUhk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,6 +87,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Feki/Desktop/pos&quot;,
@@ -69,18 +96,44 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.95" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn package" />
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.95">
+    <configuration name="DatabaseConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.database.DatabaseConnection" />
+      <module name="pos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 8.5.95" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.95" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER" value="false" />
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/pos" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="pos:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/pos" />
+            <option name="CONTEXT_PATH" value="/pos_war" />
           </settings>
         </artifact>
       </deployment>
@@ -162,6 +215,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DatabaseConnection" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.95" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DatabaseConnection" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -178,7 +240,12 @@
       <workItem from="1700131226691" duration="1600000" />
       <workItem from="1701684467315" duration="15226000" />
       <workItem from="1701774955923" duration="333000" />
-      <workItem from="1701775332601" duration="4501000" />
+      <workItem from="1701775332601" duration="15533000" />
+      <workItem from="1701943651644" duration="989000" />
+      <workItem from="1701944678746" duration="4253000" />
+      <workItem from="1701950036086" duration="8819000" />
+      <workItem from="1702286368642" duration="19632000" />
+      <workItem from="1702462188827" duration="7641000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <option name="closed" value="true" />
@@ -208,5 +275,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
     <option name="LAST_COMMIT_MESSAGE" value="initial" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/services/ProductService.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

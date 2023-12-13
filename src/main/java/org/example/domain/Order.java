@@ -1,9 +1,13 @@
 package org.example.domain;
+import com.google.gson.annotations.SerializedName;
+
+import java.sql.ResultSet;
 import java.util.Date;
 
 public class Order {
     private String id;
-    private String order_number;
+    @SerializedName("order_number")
+    private String orderNumber;
     private double total_charges;
     private status status;
     private Date updated_at;
@@ -17,20 +21,20 @@ public class Order {
         this.id = id;
     }
 
-    public String getOrder_number() {
-        return order_number;
+    public String getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setOrder_number(String order_number) {
-        this.order_number = order_number;
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public double getTotal_charges() {
         return total_charges;
     }
 
-    public Order.status getStatus() {
-        return status;
+    public String getStatus() {
+        return status.toString();
     }
 
     public void setStatus(Order.status status) {
@@ -61,5 +65,12 @@ public class Order {
         APPROVED,
         CANCELLED,
         PENDING
+    }
+
+    public Order(ResultSet rs) throws Exception {
+        this.id = rs.getString("id");
+        this.orderNumber = rs.getString("order_number");
+        this.total_charges = rs.getDouble("total_charges");
+        this.status = status.valueOf(rs.getString("status"));
     }
 }

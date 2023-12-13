@@ -10,4 +10,7 @@ public class ProductRepository {
 
     Product product1 = new Product("","firstproduct",100,true);
 
+
 }
+
+

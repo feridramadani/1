@@ -1,4 +1,5 @@
 package org.example.domain;
+import java.sql.ResultSet;
 import java.util.Date;
 
 public class OrderItem {
@@ -38,7 +39,7 @@ public class OrderItem {
         return charge_amount;
     }
 
-    public OrderItem.status getStatus() {
+    public status getStatus() {
         return status;
     }
 
@@ -70,5 +71,13 @@ public class OrderItem {
         APPROVED,
         CANCELLED,
         PENDING
+    }
+
+    public OrderItem(ResultSet rs) throws Exception {
+        this.id = rs.getString("id");
+        this.product_id = rs.getString("product_id");
+        this.order_id = rs.getString("order_id");
+        this.charge_amount = rs.getDouble("charge_amount");
+        this.status = status.valueOf(rs.getString("status"));
     }
 }

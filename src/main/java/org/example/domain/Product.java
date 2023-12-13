@@ -1,4 +1,6 @@
 package org.example.domain;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Product {
@@ -62,5 +64,12 @@ public class Product {
         this.name = name;
         this.base_price = base_price;
         this.activate = activate;
+    }
+
+    public Product(ResultSet rs) throws Exception {
+        this.id = rs.getString("id");
+        this.name = rs.getString("name");
+        this.base_price = rs.getDouble("base_price");
+        this.activate = rs.getBoolean("active");
     }
 }
