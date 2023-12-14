@@ -1,15 +1,32 @@
 package org.example.domain;
+
+import com.google.gson.annotations.SerializedName;
+
 import java.sql.ResultSet;
 import java.util.Date;
 
 public class OrderItem {
+
+    @SerializedName("id")
     private String id;
-    private String product_id;
-    private String order_id;
-    private double charge_amount;
+
+    @SerializedName("product_id")
+    private String productId;
+
+    @SerializedName("order_id")
+    private String orderId;
+
+    @SerializedName("charge_amount")
+    private double chargeAmount;
+
+    @SerializedName("status")
     private status status;
-    private Date updated_at;
-    private Date created_at;
+
+    @SerializedName("updated_at")
+    private Date updatedAt;
+
+    @SerializedName("created_at")
+    private Date createdAt;
 
     public String getId() {
         return id;
@@ -19,24 +36,24 @@ public class OrderItem {
         this.id = id;
     }
 
-    public String getProduct_id() {
-        return product_id;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(String product_id) {
-        this.product_id = product_id;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public String getOrder_id() {
-        return order_id;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(String order_id) {
-        this.order_id = order_id;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
-    public double getCharge_amount() {
-        return charge_amount;
+    public double getChargeAmount() {
+        return chargeAmount;
     }
 
     public status getStatus() {
@@ -47,24 +64,24 @@ public class OrderItem {
         this.status = status;
     }
 
-    public void setCharge_amount(double charge_amount) {
-        this.charge_amount = charge_amount;
+    public void setChargeAmount(double chargeAmount) {
+        this.chargeAmount = chargeAmount;
     }
 
-    public Date getUpdated_at() {
-        return updated_at;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(Date updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public enum status {
@@ -75,9 +92,9 @@ public class OrderItem {
 
     public OrderItem(ResultSet rs) throws Exception {
         this.id = rs.getString("id");
-        this.product_id = rs.getString("product_id");
-        this.order_id = rs.getString("order_id");
-        this.charge_amount = rs.getDouble("charge_amount");
+        this.productId = rs.getString("product_id");
+        this.orderId = rs.getString("order_id");
+        this.chargeAmount = rs.getDouble("charge_amount");
         this.status = status.valueOf(rs.getString("status"));
     }
 }

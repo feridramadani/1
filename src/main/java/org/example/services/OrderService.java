@@ -18,7 +18,7 @@ public class OrderService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Select.GET_ORDER_BY_ID);
+            statement = conn.prepareStatement(OrderSQL.GET_ORDER_BY_ID);
             statement.setString(1, id);
             rs = statement.executeQuery();
             if (rs.next()) {
@@ -39,10 +39,10 @@ public class OrderService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Insert.CREATE_ORDER);
+            statement = conn.prepareStatement(OrderSQL.CREATE_ORDER);
             statement.setString(1, order.getId());
             statement.setString(2, order.getOrderNumber());
-            statement.setDouble(3, order.getTotal_charges());
+            statement.setDouble(3, order.getTotalCharges());
             statement.setString(4, order.getStatus());
             isCreated = statement.executeUpdate() == 1;
         } finally {
@@ -58,7 +58,7 @@ public class OrderService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Delete.DELETE_ORDER);
+            statement = conn.prepareStatement(OrderSQL.DELETE_ORDER);
             statement.setString(1, id);
             isCreated = statement.executeUpdate() == 1;
 
@@ -75,10 +75,10 @@ public class OrderService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Update.UPDATE_ORDER);
+            statement = conn.prepareStatement(OrderSQL.UPDATE_ORDER);
             statement.setString(1, order.getId());
             statement.setString(2, order.getOrderNumber());
-            statement.setDouble(3, order.getTotal_charges());
+            statement.setDouble(3, order.getTotalCharges());
             statement.setString(4, order.getStatus());
             isUpdated = statement.executeUpdate() == 1;
         } finally {
@@ -94,7 +94,7 @@ public class OrderService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Select.GET_ALL_ORDERS);
+            statement = conn.prepareStatement(OrderSQL.GET_ALL_ORDERS);
             rs = statement.executeQuery();
             List<Order> orders = new ArrayList<>();
             while (rs.next()) {

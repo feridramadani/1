@@ -1,17 +1,31 @@
 package org.example.domain;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.sql.ResultSet;
 import java.util.Date;
 
 public class Order {
+    @SerializedName("id")
     private String id;
+
     @SerializedName("order_number")
     private String orderNumber;
-    private double total_charges;
+
+    @SerializedName("total_charges")
+    private double totalCharges;
+
+    @SerializedName("status")
     private status status;
-    private Date updated_at;
-    private Date created_at;
+
+    @SerializedName("guest_name")
+    private String guestName;
+
+    @SerializedName("updated_at")
+    private Date updatedAt;
+
+    @SerializedName("created_at")
+    private Date createdAt;
 
     public String getId() {
         return id;
@@ -29,8 +43,8 @@ public class Order {
         this.orderNumber = orderNumber;
     }
 
-    public double getTotal_charges() {
-        return total_charges;
+    public double getTotalCharges() {
+        return totalCharges;
     }
 
     public String getStatus() {
@@ -41,24 +55,32 @@ public class Order {
         this.status = status;
     }
 
-    public void setTotal_charges(double total_charges) {
-        this.total_charges = total_charges;
+    public void setTotalCharges(double totalCharges) {
+        this.totalCharges = totalCharges;
     }
 
-    public Date getUpdated_at() {
-        return updated_at;
+    public String getGuestName() {
+        return guestName;
     }
 
-    public void setUpdated_at(Date updated_at) {
-        this.updated_at = updated_at;
+    public void setGuestName(String guestName) {
+        this.guestName = guestName;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public enum status {
@@ -70,7 +92,7 @@ public class Order {
     public Order(ResultSet rs) throws Exception {
         this.id = rs.getString("id");
         this.orderNumber = rs.getString("order_number");
-        this.total_charges = rs.getDouble("total_charges");
+        this.totalCharges = rs.getDouble("total_charges");
         this.status = status.valueOf(rs.getString("status"));
     }
 }

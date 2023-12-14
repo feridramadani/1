@@ -1,10 +1,11 @@
 package org.example.domain;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.sql.ResultSet;
 import java.util.Date;
 
-public class Product {
+public class Menu {
 
     @SerializedName("id")
     private String id;
@@ -12,14 +13,11 @@ public class Product {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("base_price")
-    private double basePrice;
+    @SerializedName("start_time")
+    private int startTime;
 
-    @SerializedName("activate")
-    private boolean activate;
-
-    @SerializedName("menu_id")
-    private String menuId;
+    @SerializedName("end_time")
+    private int endTime;
 
     @SerializedName("updated_at")
     private Date updatedAt;
@@ -43,28 +41,20 @@ public class Product {
         this.name = name;
     }
 
-    public double getBasePrice() {
-        return basePrice;
+    public int getStartTime() {
+        return startTime;
     }
 
-    public void setBasePrice(double basePrice) {
-        this.basePrice = basePrice;
+    public void setStartTime(int startTime) {
+        this.startTime = startTime;
     }
 
-    public boolean isActivate() {
-        return activate;
+    public int getEndTime() {
+        return endTime;
     }
 
-    public void setActivate(boolean activate) {
-        this.activate = activate;
-    }
-
-    public String getMenuId() {
-        return menuId;
-    }
-
-    public void setMenuId(String menuId) {
-        this.menuId = menuId;
+    public void setEndTime(int endTime) {
+        this.endTime = endTime;
     }
 
     public Date getUpdatedAt() {
@@ -83,10 +73,10 @@ public class Product {
         this.createdAt = createdAt;
     }
 
-    public Product(ResultSet rs) throws Exception {
+    public Menu(ResultSet rs) throws Exception {
         this.id = rs.getString("id");
         this.name = rs.getString("name");
-        this.basePrice = rs.getDouble("base_price");
-        this.activate = rs.getBoolean("active");
+        this.startTime = rs.getInt("start_time");
+        this.endTime = rs.getInt("end_time");
     }
 }

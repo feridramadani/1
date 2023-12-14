@@ -1,15 +1,28 @@
 package org.example.domain;
+import com.google.gson.annotations.SerializedName;
+
 import java.sql.ResultSet;
 import java.util.Date;
 
 public class Payment {
+
+    @SerializedName("id")
     private String id;
-    private String order_id;
+
+    @SerializedName("order_id")
+    private String orderId;
+
+    @SerializedName("amount")
     private double amount;
+
+    @SerializedName("status")
     private status status;
 
-    private Date updated_at;
-    private Date created_at;
+    @SerializedName("updated_at")
+    private Date updatedAt;
+
+    @SerializedName("created_at")
+    private Date createdAt;
 
 
     public String getId() {
@@ -20,12 +33,12 @@ public class Payment {
         this.id = id;
     }
 
-    public String getOrder_id() {
-        return order_id;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(String order_id) {
-        this.order_id = order_id;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public double getAmount() {
@@ -44,20 +57,20 @@ public class Payment {
         this.status = status;
     }
 
-    public Date getUpdated_at() {
-        return updated_at;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(Date updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public enum status {
@@ -68,7 +81,7 @@ public class Payment {
 
     public Payment(ResultSet rs) throws Exception {
         this.id = rs.getString("id");
-        this.order_id = rs.getString("order_id");
+        this.orderId = rs.getString("order_id");
         this.amount = rs.getDouble("amount");
         this.status = status.valueOf(rs.getString("status"));
     }

@@ -9,8 +9,8 @@ import javax.ws.rs.core.Response;
 
 @Path("orderitems")
 public class OrderItemResource {
-    Gson gson = new Gson();
 
+    Gson gson = new Gson();
     @GET
     @Path("/{id}")
     public Response getOrderItem(@PathParam("id") String id) throws Exception {
@@ -49,7 +49,6 @@ public class OrderItemResource {
     @Path("/all")
     public Response getAllOrderItems() throws Exception {
         OrderItemService orderItemService = new OrderItemService();
-        Gson gson = new Gson();
         return Response.ok(gson.toJson(orderItemService.getAllOrderItems())).build();
     }
 }

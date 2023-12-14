@@ -18,7 +18,7 @@ public class ProductService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Select.GET_PRODUCT_BY_ID);
+            statement = conn.prepareStatement(ProductSQL.GET_PRODUCT_BY_ID);
             statement.setString(1, id);
             rs = statement.executeQuery();
             if (rs.next()) {
@@ -39,11 +39,12 @@ public class ProductService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Insert.CREATE_PRODUCT);
+            statement = conn.prepareStatement(ProductSQL.CREATE_PRODUCT);
             statement.setString(1, product.getId());
             statement.setString(2, product.getName());
-            statement.setDouble(3, product.getBase_price());
+            statement.setDouble(3, product.getBasePrice());
             statement.setBoolean(4, product.isActivate());
+            statement.setString(5,product.getMenuId());
             isCreated = statement.executeUpdate() == 1;
         } finally {
             statement.close();
@@ -58,7 +59,7 @@ public class ProductService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Delete.DELETE_PRODUCT);
+            statement = conn.prepareStatement(ProductSQL.DELETE_PRODUCT);
             statement.setString(1, id);
             isCreated = statement.executeUpdate() == 1;
 
@@ -75,11 +76,12 @@ public class ProductService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Update.UPDATE_PRODUCT);
+            statement = conn.prepareStatement(ProductSQL.UPDATE_PRODUCT);
             statement.setString(1, product.getName());
-            statement.setDouble(2, product.getBase_price());
+            statement.setDouble(2, product.getBasePrice());
             statement.setBoolean(3, product.isActivate());
             statement.setString(4, product.getId());
+            statement.setString(5,product.getMenuId());
             isUpdated = statement.executeUpdate() == 1;
         } finally {
             statement.close();
@@ -94,7 +96,7 @@ public class ProductService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Select.GET_ALL_PRODUCTS);
+            statement = conn.prepareStatement(ProductSQL.GET_ALL_PRODUCTS);
             rs = statement.executeQuery();
             List<Product> products = new ArrayList<>();
             while (rs.next()){

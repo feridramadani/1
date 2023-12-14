@@ -18,7 +18,7 @@ public class OrderItemService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Select.GET_ORDER_ITEM);
+            statement = conn.prepareStatement(OrderSQL.GET_ORDER_ITEM);
             statement.setString(1, id);
             rs = statement.executeQuery();
             if (rs.next()) {
@@ -38,11 +38,11 @@ public class OrderItemService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Insert.ADD_ORDER_ITEM);
+            statement = conn.prepareStatement(OrderSQL.ADD_ORDER_ITEM);
             statement.setString(1, orderItem.getId());
-            statement.setString(2, orderItem.getProduct_id());
-            statement.setString(3, orderItem.getOrder_id());
-            statement.setDouble(4, orderItem.getCharge_amount());
+            statement.setString(2, orderItem.getProductId());
+            statement.setString(3, orderItem.getOrderId());
+            statement.setDouble(4, orderItem.getChargeAmount());
             statement.setString(5, orderItem.getStatus().name());
             statement.executeUpdate();
         } finally {
@@ -56,7 +56,7 @@ public class OrderItemService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Delete.DELETE_ORDER_ITEM);
+            statement = conn.prepareStatement(OrderSQL.DELETE_ORDER_ITEM);
             statement.setString(1, id);
             statement.executeUpdate();
         } finally {
@@ -70,11 +70,11 @@ public class OrderItemService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Update.UPDATE_ORDER_ITEM);
+            statement = conn.prepareStatement(OrderSQL.UPDATE_ORDER_ITEM);
             statement.setString(1, orderItem.getId());
-            statement.setString(2, orderItem.getProduct_id());
-            statement.setString(3, orderItem.getOrder_id());
-            statement.setDouble(4, orderItem.getCharge_amount());
+            statement.setString(2, orderItem.getProductId());
+            statement.setString(3, orderItem.getOrderId());
+            statement.setDouble(4, orderItem.getChargeAmount());
             statement.setString(5, orderItem.getStatus().name());
             statement.executeUpdate();
         } finally {
@@ -90,7 +90,7 @@ public class OrderItemService {
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(Select.GET_ALL_ORDER_ITEMS);
+            statement = conn.prepareStatement(OrderSQL.GET_ALL_ORDER_ITEMS);
             rs = statement.executeQuery();
             while (rs.next()) {
                 orderItems.add(new OrderItem(rs));

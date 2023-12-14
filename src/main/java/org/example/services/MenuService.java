@@ -1,7 +1,8 @@
 package org.example.services;
 
 import org.example.database.*;
-import org.example.domain.Payment;
+import org.example.domain.Menu;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,19 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class PaymentService {
+public class MenuService {
 
-    public Payment getPayment(String id) throws Exception {
+    public Menu getMenu(String id) throws Exception {
         ResultSet rs = null;
         PreparedStatement statement = null;
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(PaymentSQL.GET_PAYMENT);
+            statement = conn.prepareStatement(MenuSQL.GET_MENU_BY_ID);
             statement.setString(1, id);
             rs = statement.executeQuery();
             if (rs.next()) {
-                return new Payment(rs);
+                return new Menu(rs);
             }
         } finally {
             rs.close();
@@ -32,18 +33,18 @@ public class PaymentService {
         return null;
     }
 
-    public boolean createPayment(Payment payment) throws Exception {
-        payment.setId(UUID.randomUUID().toString());
+    public boolean createMenu(Menu menu) throws Exception {
+        menu.setId(UUID.randomUUID().toString());
         boolean isCreated = false;
         PreparedStatement statement = null;
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(PaymentSQL.CREATE_PAYMENT);
-            statement.setString(1, payment.getId());
-            statement.setString(2, payment.getOrderId());
-            statement.setDouble(3, payment.getAmount());
-            statement.setString(4, payment.getStatus());
+            statement = conn.prepareStatement(MenuSQL.CREATE_MENU);
+            statement.setString(1, menu.getId());
+            statement.setString(2, menu.getName());
+            statement.setInt(3,menu.getStartTime());
+            statement.setInt(4, menu.getEndTime());
             isCreated = statement.executeUpdate() == 1;
         } finally {
             statement.close();
@@ -52,13 +53,13 @@ public class PaymentService {
         return isCreated;
     }
 
-    public boolean deletePayment(String id) throws Exception {
+    public boolean deleteMenu(String id) throws Exception {
         boolean isCreated;
         PreparedStatement statement = null;
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(PaymentSQL.DELETE_PAYMENT);
+            statement = conn.prepareStatement(MenuSQL.DELETE_MENU);
             statement.setString(1, id);
             isCreated = statement.executeUpdate() == 1;
 
@@ -69,17 +70,17 @@ public class PaymentService {
         return isCreated;
     }
 
-    public boolean updatePayment(Payment payment) throws Exception {
+    public boolean updateMenu(Menu menu) throws Exception {
         boolean isUpdated = false;
         PreparedStatement statement = null;
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(PaymentSQL.UPDATE_PAYMENT);
-            statement.setString(1, payment.getId());
-            statement.setString(2, payment.getOrderId());
-            statement.setDouble(3, payment.getAmount());
-            statement.setString(4, payment.getStatus());
+            statement = conn.prepareStatement(MenuSQL.UPDATE_MENUS);
+            statement.setString(1, menu.getId());
+            statement.setString(2, menu.getName());
+            statement.setInt(3, menu.getStartTime());
+            statement.setInt(4, menu.getEndTime());
             isUpdated = statement.executeUpdate() == 1;
         } finally {
             statement.close();
@@ -88,21 +89,21 @@ public class PaymentService {
         return isUpdated;
     }
 
-    public List<Payment> getAllPayments() throws Exception {
+    public List<Menu> getAllMenus() throws Exception {
         ResultSet rs = null;
         PreparedStatement statement = null;
         Connection conn = null;
         try {
             conn = DatabaseConnection.getInstance().getConnection();
-            statement = conn.prepareStatement(PaymentSQL.GET_ALL_PAYMENTS);
+            statement = conn.prepareStatement(MenuSQL.GET_ALL_MENUS);
             rs = statement.executeQuery();
-            List<Payment> payment = new ArrayList<>();
-            while (rs.next()) {
-                payment.add(new Payment(rs));
+            List<Menu> menus = new ArrayList<>();
+            while (rs.next()){
+                menus.add(new Menu(rs));
             }
             statement.close();
             conn.close();
-            return payment;
+            return menus;
         } finally {
             rs.close();
             statement.close();

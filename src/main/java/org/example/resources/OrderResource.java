@@ -10,11 +10,12 @@ import javax.ws.rs.core.Response;
 @Path("orders")
 public class OrderResource {
 
+    Gson gson = new Gson();
+
     @GET
     @Path("/{id}")
     public Response getOrder(@PathParam("id") String id) throws Exception {
         OrderService orderService = new OrderService();
-        Gson gson = new Gson();
         return Response
                 .ok(gson.toJson(orderService.getOrder(id)))
                 .build();
@@ -24,7 +25,6 @@ public class OrderResource {
     @Path("/create")
     public Response createOrder(String payload) throws Exception {
         OrderService orderService = new OrderService();
-        Gson gson = new Gson();
         Order order = gson.fromJson(payload, Order.class);
         boolean isCreated = orderService.createOrder(order);
         if (isCreated) return Response.ok().build();
@@ -33,7 +33,7 @@ public class OrderResource {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteProduct(@PathParam("id")String id) throws Exception {
+    public Response deleteProduct(@PathParam("id") String id) throws Exception {
         OrderService orderService = new OrderService();
         boolean isCreated = orderService.deleteOrder(id);
         if (isCreated) return Response.ok().build();
@@ -44,7 +44,6 @@ public class OrderResource {
     @Path("/update")
     public Response updateOrder(String payload) throws Exception {
         OrderService orderService = new OrderService();
-        Gson gson = new Gson();
         Order order = gson.fromJson(payload, Order.class);
         boolean isCreated = orderService.updateOrder(order);
         if (isCreated) return Response.ok().build();
@@ -55,7 +54,6 @@ public class OrderResource {
     @Path("/all")
     public Response getAllOrders() throws Exception {
         OrderService orderService = new OrderService();
-        Gson gson = new Gson();
         return Response.ok(gson.toJson(orderService.getAllOrders())).build();
     }
 }
