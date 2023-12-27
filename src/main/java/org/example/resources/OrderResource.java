@@ -24,11 +24,10 @@ public class OrderResource {
     @POST
     @Path("/create")
     public Response createOrder(String payload) throws Exception {
-        OrderService orderService = new OrderService();
         Order order = gson.fromJson(payload, Order.class);
-        boolean isCreated = orderService.createOrder(order);
-        if (isCreated) return Response.ok().build();
-        else return Response.serverError().build();
+        OrderService orderService = new OrderService();
+        orderService.createOrder(order);
+        return Response.ok().build();
     }
 
     @DELETE

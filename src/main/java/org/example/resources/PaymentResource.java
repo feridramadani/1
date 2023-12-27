@@ -10,11 +10,12 @@ import javax.ws.rs.core.Response;
 @Path("payments")
 public class PaymentResource {
 
+    Gson gson = new Gson();
+
     @GET
     @Path("/{id}")
     public Response getPayment(@PathParam("id")String id) throws Exception {
         PaymentService paymentService = new PaymentService();
-        Gson gson = new Gson();
         return Response
                 .ok(gson.toJson(paymentService.getPayment(id)))
                 .build();
@@ -24,7 +25,6 @@ public class PaymentResource {
     @Path("/create")
     public Response createPayment(String payload) throws Exception {
         PaymentService paymentService = new PaymentService();
-        Gson gson = new Gson();
         Payment payment = gson.fromJson(payload, Payment.class);
         boolean isCreated = paymentService.createPayment(payment);
         if (isCreated) return Response.ok().build();
@@ -44,7 +44,6 @@ public class PaymentResource {
     @Path("/update")
     public Response updateOrder(String payload) throws Exception {
         PaymentService paymentService = new PaymentService();
-        Gson gson = new Gson();
         Payment payment = gson.fromJson(payload, Payment.class);
         boolean isCreated = paymentService.updatePayment(payment);
         if (isCreated) return Response.ok().build();
@@ -55,7 +54,6 @@ public class PaymentResource {
     @Path("/all")
     public Response getAllPayments() throws Exception {
         PaymentService paymentService = new PaymentService();
-        Gson gson = new Gson();
         return Response.ok(gson.toJson(paymentService.getAllPayments())).build();
     }
 }

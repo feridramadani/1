@@ -17,7 +17,7 @@ public class OrderItem {
     private String orderId;
 
     @SerializedName("charge_amount")
-    private double chargeAmount;
+    private Double chargeAmount;
 
     @SerializedName("status")
     private status status;
@@ -27,6 +27,12 @@ public class OrderItem {
 
     @SerializedName("created_at")
     private Date createdAt;
+
+    @SerializedName("menu_id")
+    private String menuId;
+
+    @SerializedName("quantity")
+    private int quantity;
 
     public String getId() {
         return id;
@@ -84,17 +90,37 @@ public class OrderItem {
         this.createdAt = createdAt;
     }
 
+    public String getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(String menuId) {
+        this.menuId = menuId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public enum status {
         APPROVED,
         CANCELLED,
         PENDING
     }
 
-    public OrderItem(ResultSet rs) throws Exception {
-        this.id = rs.getString("id");
-        this.productId = rs.getString("product_id");
-        this.orderId = rs.getString("order_id");
-        this.chargeAmount = rs.getDouble("charge_amount");
-        this.status = status.valueOf(rs.getString("status"));
+    public OrderItem() {
+    }
+
+    public OrderItem(ResultSet rs, String alias) throws Exception {
+        this.id = rs.getString(alias + "id");
+        this.productId = rs.getString(alias + "product_id");
+        this.orderId = rs.getString(alias + "order_id");
+        this.chargeAmount = rs.getDouble(alias + "charge_amount");
+        this.status = status.valueOf(rs.getString(alias + "status"));
+        this.quantity = rs.getInt(alias + "quantity");
     }
 }

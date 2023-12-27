@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -111,4 +112,29 @@ public class ProductService {
             conn.close();
         }
     }
+
+    public HashMap<String, Product> getAllProductsMapped () throws Exception {
+        HashMap<String, Product> map = new HashMap<>();
+        ResultSet rs = null;
+        PreparedStatement statement = null;
+        Connection conn = null;
+        try {
+            conn = DatabaseConnection.getInstance().getConnection();
+            statement = conn.prepareStatement(ProductSQL.GET_ALL_PRODUCTS);
+            rs = statement.executeQuery();
+            while (rs.next()){
+                Product product = new Product(rs);
+                map.put(product.getId(),product);
+            }
+            statement.close();
+            conn.close();
+            return map;
+        } finally {
+            rs.close();
+            statement.close();
+            conn.close();
+        }
+    }
+
+
 }

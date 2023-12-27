@@ -22,7 +22,7 @@ public class OrderItemService {
             statement.setString(1, id);
             rs = statement.executeQuery();
             if (rs.next()) {
-                return new OrderItem(rs);
+                return new OrderItem(rs, "");
             }
         } finally {
             rs.close();
@@ -93,7 +93,7 @@ public class OrderItemService {
             statement = conn.prepareStatement(OrderSQL.GET_ALL_ORDER_ITEMS);
             rs = statement.executeQuery();
             while (rs.next()) {
-                orderItems.add(new OrderItem(rs));
+                orderItems.add(new OrderItem(rs, ""));
             }
             return orderItems;
         } finally {

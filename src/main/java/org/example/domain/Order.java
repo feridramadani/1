@@ -3,7 +3,9 @@ package org.example.domain;
 import com.google.gson.annotations.SerializedName;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Order {
     @SerializedName("id")
@@ -13,7 +15,7 @@ public class Order {
     private String orderNumber;
 
     @SerializedName("total_charges")
-    private double totalCharges;
+    private Double totalCharges;
 
     @SerializedName("status")
     private status status;
@@ -26,6 +28,9 @@ public class Order {
 
     @SerializedName("created_at")
     private Date createdAt;
+
+    @SerializedName("order_items")
+    private List<OrderItem> orderItems;
 
     public String getId() {
         return id;
@@ -89,10 +94,38 @@ public class Order {
         PENDING
     }
 
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+
+//    public Order(ResultSet rs) throws Exception {
+//        this.id = rs.getString("id");
+//        this.orderNumber = rs.getString("order_number");
+//        this.totalCharges = rs.getDouble("total_charges");
+//        this.status = status.valueOf(rs.getString("status"));
+//    }
+
+
+    public Order() {
+
+    }
+
+    public Order(String guestName, List<OrderItem> orderItems) {
+        this.guestName = guestName;
+        this.orderItems = new ArrayList<>();
+    }
+
     public Order(ResultSet rs) throws Exception {
-        this.id = rs.getString("id");
-        this.orderNumber = rs.getString("order_number");
-        this.totalCharges = rs.getDouble("total_charges");
-        this.status = status.valueOf(rs.getString("status"));
+        this.guestName = rs.getString("guest_name");
+//        this.id = rs.getString("id");
+//        this.orderNumber = rs.getString("order_number");
+//        this.totalCharges = rs.getDouble("total_charges");
+//        this.status = status.valueOf(rs.getString("status"));
+        this.orderItems = new ArrayList<>();
     }
 }

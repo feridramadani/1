@@ -51,6 +51,4 @@ public class ProductResource {
         ProductService productService = new ProductService();
         return Response.ok(gson.toJson(productService.getAllProducts())).build();
     }
-
-
 }

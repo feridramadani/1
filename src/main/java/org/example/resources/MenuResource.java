@@ -13,7 +13,7 @@ public class MenuResource {
     Gson gson = new Gson();
     @GET
     @Path("/{id}")
-    public Response getMenu(@PathParam("id")String id) throws Exception{
+    public Response getMenu(@PathParam("id")String id) throws Exception {
         MenuService menuService = new MenuService();
         return Response
                 .ok(gson.toJson(menuService.getMenu(id)))
