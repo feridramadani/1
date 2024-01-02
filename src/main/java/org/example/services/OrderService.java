@@ -29,10 +29,14 @@ public class OrderService {
             rs = statement.executeQuery();
             while (rs.next()) {
                 if (order == null) {
-                    order = new Order(rs);
+//                    order = new Order(rs.getString("o.guest_name"), new ArrayList<>());
+                order = new Order();
+                order.setGuestName(rs.getString("o.guest_name"));
+                order.setOrderItems(new ArrayList<>());
                 }
                 OrderItem orderItem = new OrderItem();
                 orderItem.setProductId(rs.getString("oi.product_id"));
+                orderItem.setName(rs.getString("p.name"));
                 orderItem.setQuantity(rs.getInt("oi.quantity"));
                 order.getOrderItems().add(orderItem);
             }
@@ -67,8 +71,8 @@ public class OrderService {
 //        }
 //    }
 
-    //    private HashMap<String, Product> getMappedProducts() throws Exception {
-//        // da bojsh named parameter statment plus query sende vende
+//        private HashMap<String, Product> getMappedProducts() throws Exception {
+//         da bojsh named parameter statment plus query sende vende
 //        HashMap<String, Product> map = new HashMap<>();
 //
 //        //mbrenda while() map.computeIfAbsent(productId, t -> new Product(rs, alias));

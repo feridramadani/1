@@ -34,6 +34,9 @@ public class OrderItem {
     @SerializedName("quantity")
     private int quantity;
 
+    @SerializedName("name")
+    private String name;
+
     public String getId() {
         return id;
     }
@@ -106,6 +109,14 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public enum status {
         APPROVED,
         CANCELLED,
@@ -113,6 +124,7 @@ public class OrderItem {
     }
 
     public OrderItem() {
+
     }
 
     public OrderItem(ResultSet rs, String alias) throws Exception {

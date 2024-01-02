@@ -14,13 +14,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/OrderSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/OrderSQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/OrderItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/resources/MenuResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/MenuResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/resources/OrderResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/OrderResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/resources/PaymentResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/PaymentResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/resources/ProductResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/ProductResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/OrderItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/OrderItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +234,8 @@
       <workItem from="1702649937138" duration="3943000" />
       <workItem from="1702894864930" duration="34995000" />
       <workItem from="1703167457136" duration="14456000" />
-      <workItem from="1703505530326" duration="33531000" />
+      <workItem from="1703505530326" duration="41569000" />
+      <workItem from="1704187738410" duration="3372000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <option name="closed" value="true" />
@@ -278,11 +273,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/resources/OrderResource.java</url>
           <line>26</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/services/OrderService.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

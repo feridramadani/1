@@ -10,7 +10,10 @@ public class OrderSQL {
     public static final String DELETE_ORDER =
             "delete from products where id=?;";
     public static final String GET_ORDER_BY_ID =
-            "select o.*, oi.* from orders o inner join order_items oi on o.id = oi.order_id " +
+            "select o.*, oi.*, p.name\n" +
+                    "from orders o\n" +
+                    "         inner join order_items oi on o.id = oi.order_id\n" +
+                    "         inner join products p on oi.product_id = p.id\n" +
                     "where o.id = ?;";
 //    public static final String GET_ORDER_BY_ID =
 //            "select * from orders where id=?";

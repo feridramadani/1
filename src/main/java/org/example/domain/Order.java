@@ -122,10 +122,10 @@ public class Order {
 
     public Order(ResultSet rs) throws Exception {
         this.guestName = rs.getString("guest_name");
-//        this.id = rs.getString("id");
-//        this.orderNumber = rs.getString("order_number");
-//        this.totalCharges = rs.getDouble("total_charges");
-//        this.status = status.valueOf(rs.getString("status"));
+        this.id = rs.getString("id");
+        this.orderNumber = rs.getString("order_number");
+        this.totalCharges = rs.getDouble("total_charges");
+        this.status = status.valueOf(rs.getString("status"));
         this.orderItems = new ArrayList<>();
     }
 }
